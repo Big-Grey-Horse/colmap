@@ -1,0 +1,14 @@
+diff '--color=auto' -ur a/CMakeLists.txt b/CMakeLists.txt
+--- a/CMakeLists.txt	2025-10-30 09:52:30.000000000 +0000
++++ b/CMakeLists.txt	2026-04-06 17:26:50.923355187 +0100
+@@ -4,8 +4,8 @@
+ option(TESTS_ENABLED "Whether to build test binaries" OFF)
+ option(ASAN_ENABLED "Whether to enable AddressSanitizer flags" OFF)
+ option(CCACHE_ENABLED "Whether to enable compiler caching, if available" ON)
+-option(FETCH_COLMAP "Whether to use COLMAP with FetchContent or with self-installed software" ON)
+-option(FETCH_POSELIB "Whether to use PoseLib with FetchContent or with self-installed software" ON)
++option(FETCH_COLMAP "Whether to use COLMAP with FetchContent or with self-installed software" OFF)
++option(FETCH_POSELIB "Whether to use PoseLib with FetchContent or with self-installed software" OFF)
+ 
+ # Propagate options to vcpkg manifest.
+ if(CUDA_ENABLED)

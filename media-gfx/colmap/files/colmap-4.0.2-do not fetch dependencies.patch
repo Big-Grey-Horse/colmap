@@ -1,0 +1,16 @@
+diff '--color=auto' -ur a/CMakeLists.txt b/CMakeLists.txt
+--- a/CMakeLists.txt	2026-03-18 10:29:35.000000000 +0000
++++ b/CMakeLists.txt	2026-04-05 10:41:00.789626875 +0100
+@@ -54,9 +54,9 @@
+ option(DOWNLOAD_ENABLED "Whether to enable (automatic) download of resources (requires Curl/OpenSSL)" ON)
+ option(UNINSTALL_ENABLED "Whether to create a target to 'uninstall' colmap" ON)
+ option(BENCHMARK_ENABLED "Whether to enable runtime benchmarking support" OFF)
+-option(FETCH_POSELIB "Whether to consume PoseLib using FetchContent or find_package" ON)
+-option(FETCH_FAISS "Whether to consume faiss using FetchContent or find_package" ON)
+-option(FETCH_ONNX "Whether to consume ONNX using FetchContent or find_package" ON)
++option(FETCH_POSELIB "Whether to consume PoseLib using FetchContent or find_package" OFF)
++option(FETCH_FAISS "Whether to consume faiss using FetchContent or find_package" OFF)
++option(FETCH_ONNX "Whether to consume ONNX using FetchContent or find_package" OFF)
+ option(BUILD_SHARED_LIBS "Whether to build shared libraries (faster linktime, slower runtime)" OFF)
+ option(ALL_SOURCE_TARGET "Whether to create a target for all source files (for Visual Studio / XCode development)" OFF)
+ 
