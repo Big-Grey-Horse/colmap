@@ -11,15 +11,29 @@ EGIT_REPO_URI="https://github.com/facebookresearch/faiss.git"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
+
+IUSE="cuda"
 
 DEPEND="
-    virtual/blas"
+    virtual/blas
+	cuda? ( dev-util/nvidia-cuda-toolkit )
+	"
+
 
 RDEPEND="${DEPEND}"
 
+src_configure() {
+MYCMAKEARGS="-DBUILD_TESTING=OFF -DFAISS_ENABLE_PYTHON=OFF"
+if use cuda ; then
+	MYCMAKEARGS+=" -DFAISS_ENABLE_GPU=ON -DCMAKE_CUDA_ARCHITECTURES=120"
+else
+	MYCMAKEARGS+=" -DFAISS_ENABLE_GPU=OFF"
+fi
 
-MYCMAKEARGS="-DFAISS_ENABLE_GPU=ON -DCMAKE_CUDA_ARCHITECTURES=120 -DBUILD_TESTING=OFF -DFAISS_ENABLE_PYTHON=OFF"
+cmake_src_configure
+
+}
 
 pkg_postinst() {
     xdg_desktop_database_update

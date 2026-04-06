@@ -9,6 +9,7 @@ DESCRIPTION="A general-purpose Structure-from-Motion and Multi-View Stereo pipel
 HOMEPAGE="https://colmap.github.io/"
 SRC_URI="https://github.com/colmap/colmap/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
+IUSE="cuda"
 
 LICENSE="BSD"
 SLOT="0"
@@ -25,11 +26,12 @@ DEPEND="
 	media-libs/openimageio
 	sci-libs/ceres-solver
 	sci-libs/cholmod
-	sci-libs/flann
+	sci-libs/faiss
 	sci-libs/metis
-	sci-libs/onnxruntime-linux-x64-gpu
 	sci-libs/poselib
 	sci-mathematics/cgal
+	cuda? ( sci-libs/onnxruntime-linux-x64-gpu )
+	!cuda? ( sci-libs/onnxruntime-linux-x64 )
 "
 
 RDEPEND="${DEPEND}"
